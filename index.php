@@ -58,37 +58,63 @@ $hotels = [
 </head>
 
 <body>
+  <form action="filters" method="get">
+    <div class="mb-3">
+      <label for="hotel-name" class="form-label">Nome Hotel</label>
+      <input type="text" class="form-control" id="hotel-name" name="hotel-name">
+    </div>
+    <div class="mb-3">
+      <label for="parking">Parcheggio</label>
+      <select class="form-select" aria-label="Default select example" id="parking" name="parking">
+        <option value="1">si</option>
+        <option value="2" selected>no</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="vote">Voto</label><select class="form-select" aria-label="Default select example" id="vote"
+        name="vote">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5" selected>5</option>
+      </select>
+    </div>
+    <button class="btn btn-primary">invia</button>
+  </form>
+
+
   <table class="table">
 
 
     <?php
     foreach ($hotels as $information): ?>
-      <thead>
-        <tr class="table-primary">
-          <th scope="col">Chiave</th>
-          <th scope="col">Elemento</th>
-        </tr>
-      </thead>
-      <tbody>
-        <?php foreach ($information as $keys => $element): ?>
+    <thead>
+      <tr class="table-primary">
+        <th scope="col">Chiave</th>
+        <th scope="col">Elemento</th>
+      </tr>
+    </thead>
+    <tbody>
+      <?php foreach ($information as $keys => $element): ?>
 
 
-          <tr>
-            <?php if ($element == true): ?>
-              <th scope="row">
-                <?php echo $keys ?>
-              </th>
+      <tr>
+        <?php if ($element == true): ?>
+        <th scope="row">
+          <?php echo $keys ?>
+        </th>
 
-              <td>
-                <?php
+        <td>
+          <?php
                 echo $element;
                 ?>
-              </td>
-            <?php endif ?>
-          </tr>
+        </td>
+        <?php endif ?>
+      </tr>
 
-        <?php endforeach; ?>
-      </tbody>
+      <?php endforeach; ?>
+    </tbody>
     <?php endforeach; ?>
 
   </table>
