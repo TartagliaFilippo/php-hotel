@@ -74,12 +74,17 @@ $hotels = [
 
 
           <tr>
-            <th scope="row">
-              <?php echo $keys ?>
-            </th>
-            <td>
-              <?php echo $element ?>
-            </td>
+            <?php if ($element == true): ?>
+              <th scope="row">
+                <?php echo $keys ?>
+              </th>
+
+              <td>
+                <?php
+                echo $element;
+                ?>
+              </td>
+            <?php endif ?>
           </tr>
 
         <?php endforeach; ?>
